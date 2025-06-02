@@ -2,3 +2,7 @@ body{
     background-color: orange;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
 }
+
+H1{
+    font-size: 2.5em;
+}
