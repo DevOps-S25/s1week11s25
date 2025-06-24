@@ -6,9 +6,6 @@ on:
     types:
       - opened
       - synchronize
-  push:
-    branches:
-      - develop
 jobs:
   linting-job:
     runs-on: ubuntu-latest
@@ -17,13 +14,9 @@ jobs:
         run: echo "Welcome to CI Pipeline"
       - name: Checkout Repo
         uses: actions/checkout@v4
-      - name: Repo Information
-        run: |
-          git branch 
-          echo "Actor Name: ${{github.actor}}"
-          echo "Repo Name: ${{github.repository}}"
-          echo "Event Name: ${{github.event_name}}"
       - name: Lint HTML Files
         run: npx htmlhint "**/*.html"
       - name: Lint CSS Files
         run: npx stylelint "**/*.css"
+      - name: Build website with Parcel
+        run: npx parcel build "./src/index.html" --dist-dir "./devdist" --public-url"./" 
